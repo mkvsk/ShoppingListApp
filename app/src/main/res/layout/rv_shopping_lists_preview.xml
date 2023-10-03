@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <TextView
+        android:id="@+id/tvCreated"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#957AD8"
+        android:gravity="end"
+        android:padding="8dp"
+        android:textColor="@color/white"
+        android:textSize="13sp"
+        tools:text="31/12/2023 12:33" />
+
+    <TextView
+        android:id="@+id/tvName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="start"
+        android:padding="8dp"
+        android:background="#957AD8"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        tools:text="Shopping list" />
+
+    <LinearLayout
+        android:id="@+id/ll"
+        android:background="#957AD8"
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btnEdit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="edit" />
+
+        <Button
+            android:id="@+id/btnRemove"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:text="remove" />
+
+    </LinearLayout>
+</LinearLayout>

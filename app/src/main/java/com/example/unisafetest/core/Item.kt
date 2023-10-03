@@ -7,11 +7,11 @@ data class Item(
     var created: String = "",
 
     @SerializedName("name")
-    var name: String,
+    var name: String = "",
 
     @SerializedName("is_crossed")
-    var isCrossed: Boolean,
+    var isCrossed: Boolean? = null,
 
     @SerializedName("id")
-    var id: Int
+    var id: Int? = null
 )

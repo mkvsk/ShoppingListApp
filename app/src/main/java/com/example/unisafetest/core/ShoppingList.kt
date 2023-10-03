@@ -7,8 +7,8 @@ data class ShoppingList(
     var created: String = "",
 
     @SerializedName("name")
-    var name: String,
+    var name: String = "",
 
     @SerializedName("id")
-    var id: Int
+    var id: Int? = null
 )

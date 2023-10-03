@@ -1,11 +1,11 @@
-package com.example.unisafetest.viewmodel
+package com.example.unisafetest.ui.viewmodel
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.unisafetest.network.callback.ResultCallback
 import com.example.unisafetest.network.response.AuthenticationResponse
-import com.example.unisafetest.repository.AuthenticationRepository
+import com.example.unisafetest.ui.repository.AuthenticationRepository
 
 class AuthenticationViewModel : ViewModel() {
     private val repository by lazy { AuthenticationRepository() }
@@ -51,5 +51,4 @@ class AuthenticationViewModel : ViewModel() {
             }
         })
     }
-
 }

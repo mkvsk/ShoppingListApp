@@ -1,4 +1,4 @@
-package com.example.unisafetest.ui
+package com.example.unisafetest.ui.view
 
 import android.content.Context
 import android.content.SharedPreferences
@@ -16,7 +16,7 @@ import com.example.unisafetest.util.Constants.DEFAULT_VALUE
 import com.example.unisafetest.util.Constants.SP_TAG
 import com.example.unisafetest.util.Constants.SP_TAG_USER_KEY
 import com.example.unisafetest.util.obtainViewModel
-import com.example.unisafetest.viewmodel.AuthenticationViewModel
+import com.example.unisafetest.ui.viewmodel.AuthenticationViewModel
 
 class AuthFragment : Fragment() {
     private var _binding: FragmentAuthBinding? = null
@@ -43,14 +43,13 @@ class AuthFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        loadSharedPreferences()
         initViews()
         initListeners()
         initObservers()
     }
 
     private fun initViews() {
-
+        loadSharedPreferences()
     }
 
     private fun initListeners() {
@@ -68,27 +67,30 @@ class AuthFragment : Fragment() {
 
     private fun initObservers() {
         authViewModel.userKey.observe(viewLifecycleOwner) {
-            binding.etKey.setText(it.toString())
+            userKey = it.toString()
+            binding.etKey.setText(userKey)
         }
 
         authViewModel.isUserAuthenticated.observe(viewLifecycleOwner) {
             if (it) {
+                saveUserToSharedPrefs()
                 navigateHome()
             }
         }
     }
 
     private fun navigateHome() {
-//        NavHostFragment.findNavController(this).navigate(R.id.action_go_to_home)
         findNavController().navigate(R.id.action_go_to_home)
     }
 
+    //    TODO ref
     private fun loadSharedPreferences() {
         sharedPreferences = requireActivity().getSharedPreferences(SP_TAG, Context.MODE_PRIVATE)
         userKey = sharedPreferences.getString(SP_TAG_USER_KEY, DEFAULT_VALUE)
 
-        if (!userKey.isNullOrBlank()) {
-            binding.etKey.setText(userKey)
+        if (userKey != null) {
+            Toast.makeText(requireContext(), "SP ${userKey.toString()}", Toast.LENGTH_SHORT).show()
+            authViewModel.setKey(userKey.toString())
         } else {
             Toast.makeText(requireContext(), "SP IS EMPTY", Toast.LENGTH_SHORT).show()
         }

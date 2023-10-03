@@ -1,4 +1,4 @@
-package com.example.unisafetest.repository
+package com.example.unisafetest.ui.repository
 
 import android.util.Log
 import com.example.unisafetest.network.response.CreateShoppingListResponse

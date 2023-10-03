@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?><!--suppress ALL -->
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/auth_dest"
-        android:name="com.example.unisafetest.ui.AuthFragment"
+        android:name="com.example.unisafetest.ui.view.AuthFragment"
         tools:layout="@layout/fragment_auth">
 
         <action
@@ -17,7 +17,15 @@
 
     <fragment
         android:id="@+id/home_dest"
-        android:name="com.example.unisafetest.ui.HomeFragment"
-        tools:layout="@layout/fragment_home" />
+        android:name="com.example.unisafetest.ui.view.HomeFragment"
+        tools:layout="@layout/fragment_home">
+        <action
+            android:id="@+id/action_go_to_list"
+            app:destination="@id/shopping_list_dest" />
+    </fragment>
 
+    <fragment
+        android:id="@+id/shopping_list_dest"
+        android:name="com.example.unisafetest.ui.view.ShoppingListFragment"
+        tools:layout="@layout/fragment_shopping_list" />
 </navigation>
